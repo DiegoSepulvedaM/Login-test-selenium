@@ -1,6 +1,6 @@
 # Automatized test with selenium
 
-## Installation instrucions
+## installation instructions
 
 1. Install the required dependencies with PiP
 2. Download Chromedriver and place it in the directory root
