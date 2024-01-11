@@ -5,7 +5,7 @@
 1. Install the required dependencies with PiP
 2. Download Chromedriver and place it in the directory root
 
-## Instrucciones for use
+## instructions for use
 
 1. execute script `python3 Login.py
 
