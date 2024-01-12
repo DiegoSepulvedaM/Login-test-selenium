@@ -1,10 +1,18 @@
+import os
 from selenium import webdriver
 import time
-from decouple import config  # Importa la función config desde el módulo python-decouple
+from dotenv import load_dotenv
+
+# Cargar variables de entorno desde el archivo .env
+load_dotenv()
+
+print(os.getenv('USER'))
+print(os.getenv('PASSWORD'))
+
 
 def realizar_prueba(user, password):
-    # Configurar el driver de Selenium (asegúrate de tener el driver correspondiente instalado)
-    driver = webdriver.Chrome()
+    # Configurar el driver de Selenium para Firefox (geckodriver)
+    driver = webdriver.Firefox()
 
     try:
         # Abrir la página de inicio de sesión en The Internet
@@ -16,7 +24,6 @@ def realizar_prueba(user, password):
         boton_iniciar_sesion = driver.find_element("css selector", "button[type='submit']")
 
         input_user.send_keys(user)
-       
         input_password.send_keys(password)
         boton_iniciar_sesion.click()
 
@@ -25,7 +32,7 @@ def realizar_prueba(user, password):
 
         # Verificar si el inicio de sesión fue exitoso
         if "You logged into a secure area!" in driver.page_source:
-            print(f"Prueba para user: {user} PASADA. Inicio de sesión exitoso.")
+            print(f"Prueba para USER: {user} PASADA. Inicio de sesión exitoso.")
         else:
             print(f"Prueba para user: {user} FALLADA. Inicio de sesión incorrecto.")
 
@@ -33,9 +40,9 @@ def realizar_prueba(user, password):
         # Cerrar el navegador al finalizar la prueba
         driver.quit()
 
-# cargar el nombre de user y la contraseña desde las variables de ambiente
-user = config('USER')
-password = config('PASSWORD')
+# Cargar el nombre de usuario y la contraseña desde las variables de entorno
+user = os.getenv('MY_USER')
+password = os.getenv('PASSWORD')
 
 # Realizar pruebas en The Internet
 realizar_prueba(user, password)
