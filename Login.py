@@ -1,5 +1,6 @@
 from selenium import webdriver
 import time
+from decouple import config  # Importa la función config desde el módulo python-decouple
 
 def realizar_prueba(usuario, contrasena):
     # Configurar el driver de Selenium (asegúrate de tener el driver correspondiente instalado)
@@ -15,6 +16,7 @@ def realizar_prueba(usuario, contrasena):
         boton_iniciar_sesion = driver.find_element("css selector", "button[type='submit']")
 
         input_usuario.send_keys(usuario)
+        # Aplicar hash a la contraseña antes de enviarla
         input_contrasena.send_keys(contrasena)
         boton_iniciar_sesion.click()
 
@@ -31,6 +33,9 @@ def realizar_prueba(usuario, contrasena):
         # Cerrar el navegador al finalizar la prueba
         driver.quit()
 
-# Realizar pruebas en The Internet
-realizar_prueba("tomsmith", "SuperSecretPassword!")
+# Cargar el nombre de usuario y la contraseña desde las variables de ambiente
+usuario = config('USUARIO')
+contrasena = config('CONTRASENA')
 
+# Realizar pruebas en The Internet
+realizar_prueba(usuario, contrasena)
