@@ -11,4 +11,3 @@ PASSWORD=SuperSecretPassword!
 
 
 1. execute script `python3 Login.py
-
