@@ -16,7 +16,7 @@ def realizar_prueba(user, password):
         boton_iniciar_sesion = driver.find_element("css selector", "button[type='submit']")
 
         input_user.send_keys(user)
-        # Aplicar hash a la contraseña antes de enviarla
+       
         input_password.send_keys(password)
         boton_iniciar_sesion.click()
 
