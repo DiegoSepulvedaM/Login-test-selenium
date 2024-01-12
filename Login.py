@@ -33,7 +33,7 @@ def realizar_prueba(user, password):
         # Cerrar el navegador al finalizar la prueba
         driver.quit()
 
-# Cargar el nombre de user y la contraseña desde las variables de ambiente
+# cargar el nombre de user y la contraseña desde las variables de ambiente
 user = config('USER')
 password = config('PASSWORD')
 
