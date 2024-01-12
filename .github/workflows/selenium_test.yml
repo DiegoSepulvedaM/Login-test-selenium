@@ -1,13 +1,6 @@
-name: Selenium Test
-
-on:
-  push:
-    branches:
-      - master
-
 jobs:
   selenium:
-    runs-on: windows-latest  # Cambiado a un entorno basado en Windows
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -16,7 +9,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: 3.12.1
 
       - name: Install dependencies
         run: |
@@ -28,8 +21,9 @@ jobs:
           USER: ${{ secrets.USER }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-          chromedriver.exe  # Ejecutar chromedriver
+          chromedriver.exe
           python3 Login.py
+
 
 
 
