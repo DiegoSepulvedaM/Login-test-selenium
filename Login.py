@@ -30,7 +30,7 @@ def realizar_prueba(user, password):
             print(f"Prueba para user: {user} FALLADA. Inicio de sesión incorrecto.")
 
     finally:
-        # Cerrar el navegador al finalizar la prueba
+        # Cerrar el navegador al finalizar la prueb
         driver.quit()
 
 # Cargar el nombre de user y la contraseña desde las variables de ambiente
