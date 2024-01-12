@@ -27,5 +27,5 @@ jobs:
         env:
           USER: ${{ secrets.USER }}
           PASSWORD: ${{ secrets.PASSWORD }}
-        run: python Login.py
+        run: python3 Login.py
 
