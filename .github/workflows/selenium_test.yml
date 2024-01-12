@@ -16,21 +16,25 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.12.1
+          python-version: 3.8
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r Requirements.txt
 
+      - name: Grant execute permissions to chromedriver
+        run: |
+          chmod +x chromedriver
+
       - name: Run Selenium tests
         env:
           USER: ${{ secrets.USER }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-          chmod +x chromedriver  # Dar permisos de ejecución al chromedriver
-          ./chromedriver         # Ejecutar chromedriver
+          ./chromedriver
           python3 Login.py
+
 
 
 
