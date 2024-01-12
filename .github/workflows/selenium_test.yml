@@ -7,7 +7,7 @@ on:
 
 jobs:
   selenium:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest  # Cambiado a un entorno basado en Windows
 
     steps:
       - name: Checkout repository
@@ -23,17 +23,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r Requirements.txt
 
-      - name: Grant execute permissions to chromedriver
-        run: |
-          chmod +x chromedriver
-
       - name: Run Selenium tests
         env:
           USER: ${{ secrets.USER }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-          ./chromedriver
+          chromedriver.exe  # Ejecutar chromedriver
           python3 Login.py
+
 
 
 
