@@ -16,7 +16,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: 3.12.1
+
+      - name: Install chromedriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install chromium-chromedriver
 
       - name: Install dependencies
         run: |
@@ -28,4 +33,5 @@ jobs:
           USER: ${{ secrets.USER }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: python3 Login.py
+
 
