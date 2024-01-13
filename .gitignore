@@ -1,3 +1,2 @@
-*chromedriver.exe
-*LICENSE.chromedriver
-*env
+*.env
+*geckodriver
